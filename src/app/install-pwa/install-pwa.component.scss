@@ -1,0 +1,105 @@
+@import url('https://cdn.jsdelivr.net/npm/vazirmatn@33.003/index.css');
+
+.page {
+  direction: rtl;
+  font-family: Vazirmatn, "Segoe UI", Roboto, sans-serif;
+  text-align: right;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f9f9ff, #eef2f7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+.header {
+  text-align: center;
+
+  h1 {
+    font-size: 2rem;
+    color: #2d2d6f;
+    margin-bottom: 0.5rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* بنر وضعیت */
+.status-banner {
+  width: 100%;
+  max-width: 600px;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  text-align: center;
+
+  &.offline {
+    background: #ffe0e0;
+    color: #a30000;
+    border: 1px solid #ffb3b3;
+  }
+
+  &.online {
+    background: #e0ffe5;
+    color: #006622;
+    border: 1px solid #8ff0b3;
+  }
+}
+
+/* دکمه‌ها */
+.actions {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 1rem;
+  margin-bottom: 2rem;
+
+  .btn {
+    padding: 0.7rem 1.2rem;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .install {
+    background: #2d2d6f;
+    color: white;
+
+    &:hover {
+      background: #1f1f4d;
+    }
+  }
+
+  .fetch {
+    background: #ffffff;
+    border: 1px solid #ccc;
+    color: #333;
+
+    &:hover {
+      background: #f0f0f0;
+    }
+  }
+}
+
+/* نتیجه */
+.result {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  width: 100%;
+
+  p {
+    margin: 0;
+    font-size: 1rem;
+    color: #222;
+  }
+}

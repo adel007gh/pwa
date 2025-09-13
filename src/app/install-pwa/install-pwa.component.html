@@ -1,0 +1,50 @@
+<!-- install-pwa.component.html -->
+<div class="page">
+  <!-- top banner for online/offline -->
+  <div class="status-banner" [class.offline]="!isOnline" [class.online]="isOnline" *ngIf="showStatus">
+    <div class="status-content">
+      <span class="dot"></span>
+      <div class="text">
+        <div class="title">{{ isOnline ? 'آنلاین' : 'شما آفلاین هستید' }}</div>
+        <div class="subtitle" *ngIf="!isOnline">قابلیت‌های شبکه محدودند — اپ از کش استفاده می‌کند</div>
+      </div>
+    </div>
+    <button class="dismiss" (click)="showStatus = false" aria-label="بستن بنر">✕</button>
+  </div>
+
+  <!-- centered card -->
+  <main class="card-wrap">
+    <section class="card">
+      <div class="hero">
+        <h1>🎉 خوش آمدید</h1>
+        <p class="lead">یک اپ سادهٔ PWA با پشتیبانی آفلاین و امکان نصب</p>
+      </div>
+
+      <div class="actions">
+        <button class="btn primary" (click)="installPWA()">
+          ⤓ نصب اپ
+          <small *ngIf="!deferredPrompt && isMobile" class="hint">
+            (برای نصب، صفحه را در مرورگر موبایل باز کنید)
+          </small>
+        </button>
+
+        <button class="btn ghost" (click)="getData()">دریافت داده‌ها</button>
+      </div>
+
+      <div class="result" *ngIf="data">
+        <div class="result-title">نتیجه:</div>
+        <div class="result-body">{{ data }}</div>
+      </div>
+
+      <footer class="meta">
+        <small>این اپ با Service Worker و کش کردن فایل‌ها از بارگذاری در حالت آفلاین پشتیبانی می‌کند.</small>
+      </footer>
+    </section>
+  </main>
+
+  <!-- subtle toast when data loaded from cache -->
+  <div class="toast" *ngIf="toastMsg">
+    {{ toastMsg }}
+    <button class="toast-close" (click)="toastMsg = ''">✕</button>
+  </div>
+</div>
